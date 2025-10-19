@@ -1,17 +1,7 @@
-/* ======================================
-   ========== BASE STYLES ==============
-   ====================================== */
+/* =============================================
+   BASE STYLES
+   ============================================= */
 
-/*body {
-    background: linear-gradient(135deg, #1a0841 0%, #6449e7 55%, #a974ff 100%);
-    min-height: 100vh;
-    margin: 0;
-    font-family: 'Quicksand', 'Poppins', sans-serif;
-    color: #FFD1FF;
-    overflow: hidden;
-    overflow-y: scroll;
-}
-    */
 body {
     background: linear-gradient(135deg, #1a0841 0%, #6449e7 55%, #a974ff 100%);
     min-height: 100vh;
@@ -24,9 +14,9 @@ body {
     padding-bottom: 12vh;
 }
 
-/* ======================================
-   =========== LAYOUT ===================
-   ====================================== */
+/* =============================================
+   LAYOUT CONTAINERS
+   ============================================= */
 
 .stars {
     position: fixed;
@@ -37,47 +27,29 @@ body {
     z-index: 0;
 }
 
-.content {
+/* Main container classes */
+.content,
+.question,
+.card-section {
     position: relative;
     width: 85vw;
     max-width: 950px;
     min-width: 340px;
-    margin: 8vh auto 8vh auto;
+    margin: 6vh auto;
     text-align: center;
     background: rgba(25, 8, 65, 0.68);
     border-radius: 2em;
-    padding: 3.5em 2.8em 3em 2.8em;
+    padding: 3.5em 2.8em 3em;
     box-shadow: 0 5px 26px #a974ff77;
     border: 2px solid #a974ff33;
     backdrop-filter: blur(2px);
     box-sizing: border-box;
     z-index: 1;
-    transform: translateY(0%);
 }
 
-.question {
-    position: relative;
-    width: 85vw;
-    max-width: 950px;
-    min-width: 340px;
-    height: 500px;
-    margin: 8vh auto 0 auto;
-    text-align: center;
-    background: rgba(25, 8, 65, 0.68);
-    border-radius: 2em;
-    padding: 3.5em 2.8em 3em 2.8em;
-    box-shadow: 0 5px 26px #a974ff77;
-    border: 2px solid #a974ff33;
-    backdrop-filter: blur(2px);
-    box-sizing: border-box;
-    z-index: 1;
-    transform: translateY(10%);
-
-}
-
-/* ======================================
-   ======= TYPOGRAPHY ===================
-   ====================================== */
+/* =============================================
+   TYPOGRAPHY
+   ============================================= */
 
 h1 {
     font-size: 3.2rem;
@@ -98,9 +70,9 @@ p {
     margin-top: 0.5em;
 }
 
-/* ======================================
-   =========== COMPONENTS ===============
-   ====================================== */
+/* =============================================
+   COMPONENTS: Tarot Card
+   ============================================= */
 
 /* Tarot Card Container */
 .tarot-card {
@@ -130,8 +102,6 @@ p {
     transform: rotateY(180deg);
 }
 
-
-
 /* Card Faces */
 .tarot-front,
 .tarot-back {
@@ -154,28 +124,24 @@ p {
     transform: rotateY(180deg);
 }
 
-/* Card Headings */
+/* Card Headings and Text */
 .tarot-main-title {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: nowrap;
     font-family: 'Poppins', 'Quicksand', serif;
     font-size: 2.1rem;
     color: #FFD1FF;
     font-weight: 700;
     text-shadow: 0 3px 12px #a974ff;
     letter-spacing: 0.09em;
-    margin: 0;
+    margin: 0 auto;
     text-transform: uppercase;
-    gap: 0.45em;
-    /* more spacious */
-}
-
-.tarot-icon {
-    font-size: 1.3em;
-    color: #FFD1FF;
-    text-shadow: 0 0 11px #a974ff99;
-    margin: 0;
+    gap: 0.6em;
+    max-width: 90%;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
 .tarot-title-stack {
@@ -183,6 +149,16 @@ p {
     flex-direction: column;
     align-items: center;
     line-height: 1.06;
+    text-align: center;
+    word-break: break-word;
+    max-width: 100%;
+}
+
+.tarot-icon {
+    font-size: 1.6em;
+    color: #FFD1FF;
+    text-shadow: 0 0 11px #a974ff99;
+    margin: 0.2em 0;
 }
 
 .tarot-title-line {
@@ -198,9 +174,9 @@ p {
     margin-top: 0.5em;
 }
 
-/* ======================================
-   ======== UTILITIES/ANIMATION =========
-   ====================================== */
+/* =============================================
+   UTILITIES & ANIMATION
+   ============================================= */
 
 /* Twinkling Star Animation */
 @keyframes twinkle {
@@ -223,6 +199,41 @@ p {
     transition: opacity 2s;
 }
 
+/* =============================================
+   FORMS & BUTTONS
+   ============================================= */
+
+form {
+    margin-top: 1em;
+}
+
+/* Text/Number Input Styling */
+input[type="text"],
+input[type="number"] {
+    width: 80%;
+    max-width: 300px;
+    padding: 0.6em 1em;
+    font-size: 1em;
+    font-family: 'Quicksand', 'Poppins', sans-serif;
+    color: #FFD1FF;
+    background: rgba(255, 209, 255, 0.1);
+    border: 2px solid #a974ff88;
+    border-radius: 1em;
+    box-shadow: 0 0 8px #a974ff55;
+    outline: none;
+    transition: all 0.3s ease;
+    text-align: center;
+    letter-spacing: 0.05em;
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+    background: rgba(255, 209, 255, 0.2);
+    box-shadow: 0 0 12px #a974ffaa;
+    border-color: #FFD1FF;
+}
+
+/* Tarot Submit Button */
 .tarot-submit-button {
     background: linear-gradient(90deg, #2d155a 0%, #8264e6 100%);
     color: #FFD1FF;
@@ -242,4 +253,13 @@ p {
 .tarot-submit-button:hover {
     transform: scale(1.05);
     box-shadow: 0 0 0 6px #a974ff88, 0 8px 26px #a974ffcc;
+}
+
+/* Optional: For validation feedback, to be used dynamically */
+form::after {
+    display: block;
+    font-size: 1.2em;
+    color: #FFD1FF;
+    text-shadow: 0 0 6px #a974ff88;
+    margin-top: 0.5em;
 }
