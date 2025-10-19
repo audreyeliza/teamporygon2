@@ -39,6 +39,21 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    function interpretMonthlyPayment(payment) {
+        if (payment < 200) {
+            return "That’s about what you’d spend on a few streaming subscriptions or weekly takeout. It’s totally manageable if you’re keeping things minimal.";
+        } else if (payment < 400) {
+            return "That’s like one nice dinner out each week or a concert every month. This is a solid entry-level payment for building credit and independence.";
+        } else if (payment < 700) {
+            return "This is your ‘smart splurge’ zone, similar to budgeting for skincare, gym memberships, and travel combined. A balanced choice for comfort and confidence.";
+        } else if (payment < 1000) {
+            return "That’s an investment move — about the cost of a weekend getaway each month.";
+        } else {
+            return "This is luxury territory and kind of equivalent to designer shopping or frequent travel. Make sure it aligns with your financial goals and keeps you feeling secure.";
+        }
+    }
+
+
     // 🚗 Finance API submission
     document.getElementById("submitBtn").onclick = async function (event) {
         event.preventDefault();
@@ -58,12 +73,17 @@ document.addEventListener("DOMContentLoaded", function () {
             });
             const result = await response.json();
             if (result.able_to_finance && result.final_plan) {
+                const payment = result.final_plan.monthly_payment_estimate;
+                const interpretation = interpretMonthlyPayment(payment);
+
                 alert(
-                    `✨ You're eligible to finance!\n` +
-                    `Estimated Monthly Payment: $${result.final_plan.monthly_payment_estimate.toFixed(2)}\n` +
+                    `✨ You're eligible to finance! ✨\n` +
+                    `Estimated Monthly Payment: $${payment.toFixed(2)}\n` +
                     `Estimated Interest: $${result.final_plan.interest_estimate.toFixed(2)}\n` +
-                    `Risk Level: ${result.final_plan.risk_level}`
+                    `Risk Level: ${result.final_plan.risk_level}\n\n` +
+                    `💫 Lifestyle Insight:\n${interpretation}`
                 );
+
             } else {
                 alert("Sorry, based on your inputs, you're not eligible to finance at this time.");
             }
