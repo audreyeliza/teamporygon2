@@ -2,7 +2,7 @@
    ========== BASE STYLES ==============
    ====================================== */
 
-body {
+/*body {
     background: linear-gradient(135deg, #1a0841 0%, #6449e7 55%, #a974ff 100%);
     min-height: 100vh;
     margin: 0;
@@ -10,6 +10,18 @@ body {
     color: #FFD1FF;
     overflow: hidden;
     overflow-y: scroll;
+}
+    */
+body {
+    background: linear-gradient(135deg, #1a0841 0%, #6449e7 55%, #a974ff 100%);
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Quicksand', 'Poppins', sans-serif;
+    color: #FFD1FF;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-attachment: fixed; 
+    padding-bottom: 12vh;
 }
 
 /* ======================================
@@ -30,7 +42,7 @@ body {
     width: 85vw;
     max-width: 950px;
     min-width: 340px;
-    margin: 8vh auto 0 auto;
+    margin: 8vh auto 8vh auto;
     text-align: center;
     background: rgba(25, 8, 65, 0.68);
     border-radius: 2em;
@@ -40,7 +52,7 @@ body {
     backdrop-filter: blur(2px);
     box-sizing: border-box;
     z-index: 1;
-    transform: translateY(-5%);
+    transform: translateY(0%);
 }
 
 .question {
