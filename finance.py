@@ -1,47 +1,73 @@
 def lifeStyle(otherExpenses, income, mortgage, rent, creditScore, loans, downPayment):
     risk = 0
-    finalPlan = None
-
-    if downPayment > 0:
-        income += downPayment
-
-    monthlyCarPayment = income / 12 * 0.1
-    totalExpenses = otherExpenses + loans + (mortgage if mortgage > 0 else rent)
-    incomeLeft = income - totalExpenses
-    percentageIncome = incomeLeft / income
-
-    # Loosen the eligibility logic
-    if percentageIncome >= 0.1 and creditScore >= 650:
-        ableToFinance = True
-        risk = 2 if creditScore >= 720 else 1
-        monthlyCost, interestEstimate = financePlan(risk, True, monthlyCarPayment, creditScore)
-        finalPlan = {
-            "monthly_payment_estimate": monthlyCost,
-            "interest_estimate": interestEstimate,
-            "risk_level": risk
-        }
+    ableToFinance = true
+    #If: there is a downpayment
+    if(downPayment > 0):
+       income+=downPayment 
+    #How much is your income monthly to where you can spend on your car
+    monthlyCarPayment = (income)/12 * 0.1
+    #What are your total expenses
+    totalExpenses = otherExpenses + loans
+    #If: you pay rent, add that 
+    if(mortgage > 0):
+        totalExpenses+=mortgage
+        homeExpensePercent = mortgage/(totalExpenses)
     else:
-        ableToFinance = False
+        totalExpenses+=rent
+        homeExpensePercent = rent/(totalExpenses)
+ 
+    incomeLeft =   (income + downPayment) - totalExpenses
+    percentageIncome  = (incomeLeft)/(income)
+    
+    if(homeExpensePercent >= 0.3 and percentageIncome >= monthlyCarPayment):
+        if(creditScore >= 720 and creditScore <= 850):
+            risk = 2
 
-    return {
-        "able_to_finance": ableToFinance,
-        "monthly_car_payment": monthlyCarPayment,
-        "income_left": incomeLeft,
-        "final_plan": finalPlan
-    }
-
-
-
-def financePlan(risk, preference, monthlyCarPayment, creditScore):
-    if preference:
-        if risk == 2:
-            monthlyCarPayment *= 5
-            monthlyCarInterest = 3.5
-        elif risk == 1:
-            monthlyCarPayment *= 5
-            monthlyCarInterest = 2
+        elif(creditScore >= 670 and creditScore <= 850):
+            risk = 1
+      
     else:
-        monthlyCarPayment *= 3
-        monthlyCarInterest = 0.005 * 2400 if risk == 2 else 0.0025 * 2400
+        ableToFinance = false
+    
+    
+    if(ableToFinance):
+        finalPlan = financePlan(risk, monthlyCarPayment)
+        
+    
+    return ableToFinance
+    
+    #Preference : Financing - true , lease - false
+    
+       
+def financePlan(risk, preference, monthlyCarPayment, creditScore, prefer):
+ #Preference : Financing - true , lease - false
+    if(prefer.lower() == "finance"):
+        preference = True 
+    else:
+        preference = False
+    
+    if(preference):
+        if(risk == 2):
+            monthlyCarPayment = (monthlyCarPayment*5)
+            monthlyCarInterest =  3.5
+            
+        if(risk == 1):
+            monthlyCarPayment = (monthlyCarPayment*5)
+            monthlyCarInterest =  2
+    else:
+        if(risk == 2):
+            monthlyCarPayment= (monthlyCarPayment*3)
+            monthlyCarInterest = 0.005*2400
+            mileage = 12,000
+        if(risk == 1):
+            monthlyCarPayment = (monthlyCarPayment*3)
+            mileage = 12,000
+            monthlyCarInterest = 0.0025*2400
+    return monthlyCarPayment, (monthlyCarInterest*3)
+ 
 
-    return monthlyCarPayment, monthlyCarInterest * 3
+     
+       
+       
+
+
