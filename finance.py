@@ -1,4 +1,4 @@
-def lifeStyle(otherExpenses, income, mortgage, rent, creditScore, loans, downPayment, highMilesDriven):
+def lifeStyle(otherExpenses, income, mortgage, rent, creditScore, loans, downPayment):
     risk = 0
     ableToFinance = false
     #If: there is a downpayment
@@ -62,8 +62,7 @@ def financePlan(risk, preference, monthlyCarPayment, creditScore):
             mileage = 12,000
             monthlyCarInterest = 0.0025*2400
     return monthlyCarPayment, (monthlyCarInterest*3)
-    
-    
+ 
 
      
        
