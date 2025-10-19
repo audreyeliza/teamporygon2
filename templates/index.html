@@ -4,16 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Manifest My Toyota</title>
+    <!-- Main stylesheet -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
 </head>
 
 <body>
+    <!-- Decorative star background -->
     <div class="stars"></div>
 
+    <!-- Main intro card -->
     <main class="content">
         <h1>Manifest My Toyota</h1>
-
         <div class="tarot-card">
             <div class="tarot-card-inner">
                 <div class="tarot-front">
@@ -30,193 +31,205 @@
                 </div>
                 <div class="tarot-back">
                     <span class="tarot-icon">✦</span>
-                    <p>Buying a car can be confusing for many young women. The solution: Manifest My Toyota, a web app
-                        that makes financing relatable using Gen Z’s “girl math,” turning complex payments into everyday
-                        logic.</p>
+                    <p>
+                        Buying a car can be confusing for many young women.
+                        The solution: Manifest My Toyota, a web app that makes financing relatable using Gen Z’s “girl
+                        math,” turning complex payments into everyday logic.
+                    </p>
                     <span class="tarot-icon">✦</span>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- Questions Section -->
-    <main class="question">
-        <div class="tarot-card">
-            <div class="tarot-card-inner">
-                <div class="tarot-front">
-                    <h1 class="tarot-main-title">
-                        <span class="tarot-icon">✦</span>
-                        <span class="tarot-title-stack">
-                            <span class="tarot-title-line">Question</span>
-                            <span class="tarot-title-line">1</span>
-                        </span>
-                        <span class="tarot-icon">✦</span>
-                    </h1>
-                    <p>click to reveal our message...</p>
+    <!-- Tarot Question Cards Section -->
+    <section id="questions">
+        <!--
+            If using Jinja/Python, automate rendering of question cards:
+            {% for q in questions %}
+            <main class="question">
+                <div class="tarot-card">
+                    <div class="tarot-card-inner">
+                        <div class="tarot-front">
+                            <h1 class="tarot-main-title">
+                                <span class="tarot-icon">✦</span>
+                                <span class="tarot-title-stack">
+                                    <span class="tarot-title-line">Question</span>
+                                    <span class="tarot-title-line">{{ loop.index }}</span>
+                                </span>
+                                <span class="tarot-icon">✦</span>
+                            </h1>
+                            <p>click to reveal our message...</p>
+                        </div>
+                        <div class="tarot-back">
+                            <span class="tarot-icon">{{ q.icon }}</span>
+                            <p>{{ q.text }}</p>
+                            <form><input type="{{ q.type }}" id="{{ q.id }}"></form>
+                            <span class="tarot-icon">✦</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="tarot-back">
-                    <span class="tarot-icon">✦</span>
-                    <p>What is your name?</p>
-                    <form><input type="text" id="name"></form>
-                    <span class="tarot-icon">✦</span>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <main class="question">
-        <div class="tarot-card">
-            <div class="tarot-card-inner">
-                <div class="tarot-front">
-                    <h1 class="tarot-main-title">
+            </main>
+            {% endfor %}
+        -->
+        <!-- Otherwise, static version below: -->
+        <main class="question">
+            <div class="tarot-card">
+                <div class="tarot-card-inner">
+                    <div class="tarot-front">
+                        <h1 class="tarot-main-title">
+                            <span class="tarot-icon">✦</span>
+                            <span class="tarot-title-stack"><span class="tarot-title-line">Question</span><span
+                                    class="tarot-title-line">1</span></span>
+                            <span class="tarot-icon">✦</span>
+                        </h1>
+                        <p>click to reveal our message...</p>
+                    </div>
+                    <div class="tarot-back">
+                        <span class="tarot-icon">♓︎</span>
+                        <p>What is your name?</p>
+                        <form><input type="text" id="name"></form>
                         <span class="tarot-icon">✦</span>
-                        <span class="tarot-title-stack">
-                            <span class="tarot-title-line">Question</span>
-                            <span class="tarot-title-line">2</span>
-                        </span>
-                        <span class="tarot-icon">✦</span>
-                    </h1>
-                    <p>click to reveal our message...</p>
-                </div>
-                <div class="tarot-back">
-                    <span class="tarot-icon">✦</span>
-                    <p>What is your annual income after taxes?</p>
-                    <form><input type="number" id="income"></form>
-                    <span class="tarot-icon">✦</span>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <main class="question">
-        <div class="tarot-card">
-            <div class="tarot-card-inner">
-                <div class="tarot-front">
-                    <h1 class="tarot-main-title">
-                        <span class="tarot-icon">✦</span>
-                        <span class="tarot-title-stack">
-                            <span class="tarot-title-line">Question</span>
-                            <span class="tarot-title-line">3</span>
-                        </span>
-                        <span class="tarot-icon">✦</span>
-                    </h1>
-                    <p>click to reveal our message...</p>
-                </div>
-                <div class="tarot-back">
-                    <span class="tarot-icon">✦</span>
-                    <p>What is your monthly rent or mortgage per month?</p>
-                    <form><input type="number" id="housing_cost"></form>
-                    <span class="tarot-icon">✦</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </main>
-
-    <main class="question">
-        <div class="tarot-card">
-            <div class="tarot-card-inner">
-                <div class="tarot-front">
-                    <h1 class="tarot-main-title">
+        </main>
+        <main class="question">
+            <div class="tarot-card">
+                <div class="tarot-card-inner">
+                    <div class="tarot-front">
+                        <h1 class="tarot-main-title">
+                            <span class="tarot-icon">✦</span>
+                            <span class="tarot-title-stack"><span class="tarot-title-line">Question</span><span
+                                    class="tarot-title-line">2</span></span>
+                            <span class="tarot-icon">✦</span>
+                        </h1>
+                        <p>click to reveal our message...</p>
+                    </div>
+                    <div class="tarot-back">
+                        <span class="tarot-icon">♒︎</span>
+                        <p>What is your annual income after taxes?</p>
+                        <form><input type="number" id="income"></form>
                         <span class="tarot-icon">✦</span>
-                        <span class="tarot-title-stack">
-                            <span class="tarot-title-line">Question</span>
-                            <span class="tarot-title-line">4</span>
-                        </span>
-                        <span class="tarot-icon">✦</span>
-                    </h1>
-                    <p>click to reveal our message...</p>
-                </div>
-                <div class="tarot-back">
-                    <span class="tarot-icon">✦</span>
-                    <p>How much do you pay in loans?</p>
-                    <form><input type="number" id="loans"></form>
-                    <span class="tarot-icon">✦</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </main>
-
-    <main class="question">
-        <div class="tarot-card">
-            <div class="tarot-card-inner">
-                <div class="tarot-front">
-                    <h1 class="tarot-main-title">
+        </main>
+        <main class="question">
+            <div class="tarot-card">
+                <div class="tarot-card-inner">
+                    <div class="tarot-front">
+                        <h1 class="tarot-main-title">
+                            <span class="tarot-icon">✦</span>
+                            <span class="tarot-title-stack"><span class="tarot-title-line">Question</span><span
+                                    class="tarot-title-line">3</span></span>
+                            <span class="tarot-icon">✦</span>
+                        </h1>
+                        <p>click to reveal our message...</p>
+                    </div>
+                    <div class="tarot-back">
+                        <span class="tarot-icon">♑︎</span>
+                        <p>What is your monthly rent or mortgage per month?</p>
+                        <form><input type="number" id="housing_cost"></form>
                         <span class="tarot-icon">✦</span>
-                        <span class="tarot-title-stack">
-                            <span class="tarot-title-line">Question</span>
-                            <span class="tarot-title-line">5</span>
-                        </span>
-                        <span class="tarot-icon">✦</span>
-                    </h1>
-                    <p>click to reveal our message...</p>
-                </div>
-                <div class="tarot-back">
-                    <span class="tarot-icon">✦</span>
-                    <p>How much do you usually spend per month on other expenses?</p>
-                    <form><input type="number" id="expenses"></form>
-                    <span class="tarot-icon">✦</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </main>
-
-    <main class="question">
-        <div class="tarot-card">
-            <div class="tarot-card-inner">
-                <div class="tarot-front">
-                    <h1 class="tarot-main-title">
+        </main>
+        <main class="question">
+            <div class="tarot-card">
+                <div class="tarot-card-inner">
+                    <div class="tarot-front">
+                        <h1 class="tarot-main-title">
+                            <span class="tarot-icon">✦</span>
+                            <span class="tarot-title-stack"><span class="tarot-title-line">Question</span><span
+                                    class="tarot-title-line">4</span></span>
+                            <span class="tarot-icon">✦</span>
+                        </h1>
+                        <p>click to reveal our message...</p>
+                    </div>
+                    <div class="tarot-back">
+                        <span class="tarot-icon">♐︎</span>
+                        <p>How much do you pay in loans?</p>
+                        <form><input type="number" id="loans"></form>
                         <span class="tarot-icon">✦</span>
-                        <span class="tarot-title-stack">
-                            <span class="tarot-title-line">Question</span>
-                            <span class="tarot-title-line">6</span>
-                        </span>
-                        <span class="tarot-icon">✦</span>
-                    </h1>
-                    <p>click to reveal our message...</p>
-                </div>
-                <div class="tarot-back">
-                    <span class="tarot-icon">✦</span>
-                    <p>What’s your credit score?</p>
-                    <form><input type="number" id="credit_score"></form>
-                    <span class="tarot-icon">✦</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </main>
-
-    <main class="question">
-        <div class="tarot-card">
-            <div class="tarot-card-inner">
-                <div class="tarot-front">
-                    <h1 class="tarot-main-title">
+        </main>
+        <main class="question">
+            <div class="tarot-card">
+                <div class="tarot-card-inner">
+                    <div class="tarot-front">
+                        <h1 class="tarot-main-title">
+                            <span class="tarot-icon">✦</span>
+                            <span class="tarot-title-stack"><span class="tarot-title-line">Question</span><span
+                                    class="tarot-title-line">5</span></span>
+                            <span class="tarot-icon">✦</span>
+                        </h1>
+                        <p>click to reveal our message...</p>
+                    </div>
+                    <div class="tarot-back">
+                        <span class="tarot-icon">♏︎</span>
+                        <p>How much do you usually spend per month on other expenses?</p>
+                        <form><input type="number" id="expenses"></form>
                         <span class="tarot-icon">✦</span>
-                        <span class="tarot-title-stack">
-                            <span class="tarot-title-line">Question</span>
-                            <span class="tarot-title-line">7</span>
-                        </span>
-                        <span class="tarot-icon">✦</span>
-                    </h1>
-                    <p>click to reveal our message...</p>
-                </div>
-                <div class="tarot-back">
-                    <span class="tarot-icon">✦</span>
-                    <p>Do you have a down payment you want to apply to your car loan?</p>
-                    <form><input type="number" id="down_payment"></form>
-                    <span class="tarot-icon">✦</span>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div style="text-align: center; margin: 2em 0;">
-            <button type="button" id="submitBtn" class="tarot-submit-button">
-                ✦ Manifest My Plan ✦
-            </button>
-        </div>
-
-    </main>
-
-
+        </main>
+        <main class="question">
+            <div class="tarot-card">
+                <div class="tarot-card-inner">
+                    <div class="tarot-front">
+                        <h1 class="tarot-main-title">
+                            <span class="tarot-icon">✦</span>
+                            <span class="tarot-title-stack"><span class="tarot-title-line">Question</span><span
+                                    class="tarot-title-line">6</span></span>
+                            <span class="tarot-icon">✦</span>
+                        </h1>
+                        <p>click to reveal our message...</p>
+                    </div>
+                    <div class="tarot-back">
+                        <span class="tarot-icon">♎︎</span>
+                        <p>What’s your credit score?</p>
+                        <form><input type="number" id="credit_score"></form>
+                        <span class="tarot-icon">✦</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <main class="question">
+            <div class="tarot-card">
+                <div class="tarot-card-inner">
+                    <div class="tarot-front">
+                        <h1 class="tarot-main-title">
+                            <span class="tarot-icon">✦</span>
+                            <span class="tarot-title-stack"><span class="tarot-title-line">Question</span><span
+                                    class="tarot-title-line">7</span></span>
+                            <span class="tarot-icon">✦</span>
+                        </h1>
+                        <p>click to reveal our message...</p>
+                    </div>
+                    <div class="tarot-back">
+                        <span class="tarot-icon">♍︎</span>
+                        <p>Do you have a down payment you want to apply to your car loan?</p>
+                        <form><input type="number" id="down_payment"></form>
+                        <span class="tarot-icon">✦</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Submit Button Main Action -->
+            <div style="text-align: center; margin: 2em 0;">
+                <button type="button" id="submitBtn" class="tarot-submit-button">
+                    ✦ Manifest My Plan ✦
+                </button>
+            </div>
+        </main>
+    </section>
 
     <!-- External Script -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
+
+</html>
