@@ -222,3 +222,24 @@ p {
     animation: twinkle 2.5s infinite;
     transition: opacity 2s;
 }
+
+.tarot-submit-button {
+    background: linear-gradient(90deg, #2d155a 0%, #8264e6 100%);
+    color: #FFD1FF;
+    font-family: 'Poppins', 'Quicksand', serif;
+    font-size: 1.1rem;
+    padding: 0.8em 2.2em;
+    border: 2px solid #FFD1FF;
+    border-radius: 1.2em;
+    box-shadow: 0 0 0 4px #a974ff66, 0 6px 22px #6449e733;
+    text-shadow: 0 0 6px #a974ff99;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.tarot-submit-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 6px #a974ff88, 0 8px 26px #a974ffcc;
+}

@@ -5,20 +5,16 @@
     <meta charset="UTF-8">
     <title>Manifest My Toyota</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon-32x32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon-16x16.png') }}">
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
-    <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
-</head>
 
+</head>
 
 <body>
     <div class="stars"></div>
+
     <main class="content">
         <h1>Manifest My Toyota</h1>
 
-        <div class="tarot-card" onclick="this.classList.toggle('flipped')">
+        <div class="tarot-card">
             <div class="tarot-card-inner">
                 <div class="tarot-front">
                     <h1 class="tarot-main-title">
@@ -29,7 +25,6 @@
                         </span>
                         <span class="tarot-icon">✦</span>
                     </h1>
-
                     <p class="tarot-subtitle">manifest • inform • empower</p>
                     <p>click to reveal our message...</p>
                 </div>
@@ -40,17 +35,13 @@
                         logic.</p>
                     <span class="tarot-icon">✦</span>
                 </div>
-                
             </div>
         </div>
-       
-
     </main>
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
 
-<!-- Rajni Code-->
-<main class="question">
-        <div class="tarot-card" onclick="this.classList.toggle('flipped')">
+    <!-- Questions Section -->
+    <main class="question">
+        <div class="tarot-card">
             <div class="tarot-card-inner">
                 <div class="tarot-front">
                     <h1 class="tarot-main-title">
@@ -61,23 +52,20 @@
                         </span>
                         <span class="tarot-icon">✦</span>
                     </h1>
-
                     <p>click to reveal our message...</p>
                 </div>
                 <div class="tarot-back">
                     <span class="tarot-icon">✦</span>
                     <p>What is your name?</p>
-                    <form>
-                        <input type = "text" id = "name">
-                    </form>
+                    <form><input type="text" id="name"></form>
                     <span class="tarot-icon">✦</span>
                 </div>
             </div>
         </div>
     </main>
 
-<main class="question">
-        <div class="tarot-card" onclick="this.classList.toggle('flipped')">
+    <main class="question">
+        <div class="tarot-card">
             <div class="tarot-card-inner">
                 <div class="tarot-front">
                     <h1 class="tarot-main-title">
@@ -88,26 +76,21 @@
                         </span>
                         <span class="tarot-icon">✦</span>
                     </h1>
-
                     <p>click to reveal our message...</p>
                 </div>
                 <div class="tarot-back">
                     <span class="tarot-icon">✦</span>
                     <p>What is your annual income after taxes?</p>
-                    <form>
-                        <input type = "number" id = "income">
-                    </form>
+                    <form><input type="number" id="income"></form>
                     <span class="tarot-icon">✦</span>
                 </div>
             </div>
         </div>
     </main>
 
-
-
     <main class="question">
-        <div class="tarot-card" onclick="this.classList.toggle('flipped')">
-            <div class="tarot-card-inner" id = "question">
+        <div class="tarot-card">
+            <div class="tarot-card-inner">
                 <div class="tarot-front">
                     <h1 class="tarot-main-title">
                         <span class="tarot-icon">✦</span>
@@ -117,24 +100,20 @@
                         </span>
                         <span class="tarot-icon">✦</span>
                     </h1>
-
                     <p>click to reveal our message...</p>
                 </div>
                 <div class="tarot-back">
                     <span class="tarot-icon">✦</span>
                     <p>What is your monthly rent or mortgage per month?</p>
-                    <form>
-                        <input type = "number" id = "housing cost">
-                    </form>
+                    <form><input type="number" id="housing_cost"></form>
                     <span class="tarot-icon">✦</span>
                 </div>
             </div>
         </div>
     </main>
 
-
     <main class="question">
-        <div class="tarot-card" onclick="this.classList.toggle('flipped')">
+        <div class="tarot-card">
             <div class="tarot-card-inner">
                 <div class="tarot-front">
                     <h1 class="tarot-main-title">
@@ -145,15 +124,12 @@
                         </span>
                         <span class="tarot-icon">✦</span>
                     </h1>
-
                     <p>click to reveal our message...</p>
                 </div>
                 <div class="tarot-back">
                     <span class="tarot-icon">✦</span>
                     <p>How much do you pay in loans?</p>
-                    <form>
-                        <input type = "number" id = "loans">
-                    </form>
+                    <form><input type="number" id="loans"></form>
                     <span class="tarot-icon">✦</span>
                 </div>
             </div>
@@ -161,7 +137,7 @@
     </main>
 
     <main class="question">
-        <div class="tarot-card" onclick="this.classList.toggle('flipped')">
+        <div class="tarot-card">
             <div class="tarot-card-inner">
                 <div class="tarot-front">
                     <h1 class="tarot-main-title">
@@ -172,15 +148,12 @@
                         </span>
                         <span class="tarot-icon">✦</span>
                     </h1>
-
                     <p>click to reveal our message...</p>
                 </div>
                 <div class="tarot-back">
                     <span class="tarot-icon">✦</span>
-                    <p> How much do you usually spend per month on other expenses? (Things you would buy for yourself like food, utilities, concert tickets, matcha~)</p>
-                    <form>
-                        <input type = "number" id = "expenses">
-                    </form>
+                    <p>How much do you usually spend per month on other expenses?</p>
+                    <form><input type="number" id="expenses"></form>
                     <span class="tarot-icon">✦</span>
                 </div>
             </div>
@@ -188,7 +161,7 @@
     </main>
 
     <main class="question">
-        <div class="tarot-card" onclick="this.classList.toggle('flipped')">
+        <div class="tarot-card">
             <div class="tarot-card-inner">
                 <div class="tarot-front">
                     <h1 class="tarot-main-title">
@@ -199,15 +172,12 @@
                         </span>
                         <span class="tarot-icon">✦</span>
                     </h1>
-
                     <p>click to reveal our message...</p>
                 </div>
                 <div class="tarot-back">
                     <span class="tarot-icon">✦</span>
-                    <p>Now that we’ve gotten all the expenses out of the way, let’s talk about your financial situation. What’s your credit score? (This helps us decide what kind of plan you should follow in financing and leasing)</p>
-                    <form>
-                        <input type = "number" id = "credit score">
-                    </form>
+                    <p>What’s your credit score?</p>
+                    <form><input type="number" id="credit_score"></form>
                     <span class="tarot-icon">✦</span>
                 </div>
             </div>
@@ -215,7 +185,7 @@
     </main>
 
     <main class="question">
-        <div class="tarot-card" onclick="this.classList.toggle('flipped')">
+        <div class="tarot-card">
             <div class="tarot-card-inner">
                 <div class="tarot-front">
                     <h1 class="tarot-main-title">
@@ -226,23 +196,27 @@
                         </span>
                         <span class="tarot-icon">✦</span>
                     </h1>
-
                     <p>click to reveal our message...</p>
                 </div>
                 <div class="tarot-back">
                     <span class="tarot-icon">✦</span>
-                    <p>Do you have a down payment you want to apply to your car loan? If not, just type in 0.</p>
-                    <form>
-                        <input type = "number" id = "down payment">
-                    </form>
+                    <p>Do you have a down payment you want to apply to your car loan?</p>
+                    <form><input type="number" id="down_payment"></form>
                     <span class="tarot-icon">✦</span>
                 </div>
             </div>
         </div>
+
+        <div style="text-align: center; margin: 2em 0;">
+            <button type="button" id="submitBtn" class="tarot-submit-button">
+                ✦ Manifest My Plan ✦
+            </button>
+        </div>
+
     </main>
 
 
 
+    <!-- External Script -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
-
-</html>
