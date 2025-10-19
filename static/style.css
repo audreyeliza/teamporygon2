@@ -9,6 +9,7 @@ body {
     font-family: 'Quicksand', 'Poppins', sans-serif;
     color: #FFD1FF;
     overflow: hidden;
+    overflow-y: scroll;
 }
 
 /* ======================================
@@ -39,6 +40,27 @@ body {
     backdrop-filter: blur(2px);
     box-sizing: border-box;
     z-index: 1;
+    transform: translateY(-5%);
+}
+
+.question {
+    position: relative;
+    width: 85vw;
+    max-width: 950px;
+    min-width: 340px;
+    height: 500px;
+    margin: 8vh auto 0 auto;
+    text-align: center;
+    background: rgba(25, 8, 65, 0.68);
+    border-radius: 2em;
+    padding: 3.5em 2.8em 3em 2.8em;
+    box-shadow: 0 5px 26px #a974ff77;
+    border: 2px solid #a974ff33;
+    backdrop-filter: blur(2px);
+    box-sizing: border-box;
+    z-index: 1;
+    transform: translateY(10%);
+   
 }
 
 /* ======================================
