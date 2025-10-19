@@ -20,7 +20,7 @@ body {
     color: #FFD1FF;
     overflow-x: hidden;
     overflow-y: scroll;
-    background-attachment: fixed; 
+    background-attachment: fixed;
     padding-bottom: 12vh;
 }
 
@@ -72,7 +72,7 @@ body {
     box-sizing: border-box;
     z-index: 1;
     transform: translateY(10%);
-   
+
 }
 
 /* ======================================
