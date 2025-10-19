@@ -16,5 +16,35 @@ document.addEventListener("DOMContentLoaded", function () {
         star.style.boxShadow = `0 0 6px 2px #ffffff55`;
         star.style.animationDelay = (Math.random() * 2.5) + 's';
         starsContainer.appendChild(star);
+
+
     }
+
+   document.addEventListener('DOMContentLoaded', function() {
+    console.log('Script loaded');
+    
+    document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.tarot-card');
+    
+    cards.forEach(card => {
+        // Remove the inline onclick first
+        card.removeAttribute('onclick');
+        
+        card.addEventListener('click', function(e) {
+            // If already flipped, do nothing
+            if (this.classList.contains('flipped')) {
+                return;
+            }
+            
+            // If clicking on input, don't flip
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'BUTTON') {
+                return;
+            }
+            
+            // Flip the card once
+            this.classList.add('flipped');
+        });
+    });
+    });
+});
 });

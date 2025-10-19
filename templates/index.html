@@ -64,6 +64,10 @@
                 <div class="tarot-back">
                     <span class="tarot-icon">✦</span>
                     <p>What is your name?</p>
+                    <form>
+                        <input type = "text" id = "name">
+
+                    </form>
                     <span class="tarot-icon">✦</span>
                 </div>
             </div>
@@ -87,8 +91,8 @@
                 </div>
                 <div class="tarot-back">
                     <span class="tarot-icon">✦</span>
-                    <p>What is your real income after taxes?</p>
-                    <input type = "text" id = "income" name = "income"></input>
+                    <p>What is your annual income after taxes?</p>
+                    <input type = "text" id = "income" name = "income">
                     <span class="tarot-icon">✦</span>
                 </div>
             </div>
@@ -99,7 +103,7 @@
 
     <main class="question">
         <div class="tarot-card" onclick="this.classList.toggle('flipped')">
-            <div class="tarot-card-inner">
+            <div class="tarot-card-inner" id = "question">
                 <div class="tarot-front">
                     <h1 class="tarot-main-title">
                         <span class="tarot-icon">✦</span>
@@ -114,7 +118,7 @@
                 </div>
                 <div class="tarot-back">
                     <span class="tarot-icon">✦</span>
-                    <p>What is your name?</p>
+                    <p></p>
                     <span class="tarot-icon">✦</span>
                 </div>
             </div>
