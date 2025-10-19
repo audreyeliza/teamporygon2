@@ -31,7 +31,8 @@ def calculate_finance():
             rent=safe_float(user_data.get("housing_cost")),
             creditScore=safe_int(user_data.get("credit_score")),
             loans=safe_float(user_data.get("loans")),
-            downPayment=safe_float(user_data.get("down_payment"))
+            downPayment=safe_float(user_data.get("down_payment")),
+            prefer =safe_float(user_data.get("preference"))
         )
         return jsonify(result)
     except Exception as e:

@@ -64,6 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     `Estimated Interest: $${result.final_plan.interest_estimate.toFixed(2)}\n` +
                     `Risk Level: ${result.final_plan.risk_level}`
                 );
+            // PUT IN LEASE STATEMENTS
             } else {
                 alert("Sorry, based on your inputs, you're not eligible to finance at this time.");
             }
