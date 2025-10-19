@@ -1,0 +1,188 @@
+/* ======================================
+   ========== BASE STYLES ==============
+   ====================================== */
+
+body {
+    background: linear-gradient(135deg, #1a0841 0%, #6449e7 55%, #a974ff 100%);
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Quicksand', 'Poppins', sans-serif;
+    color: #FFD1FF;
+    overflow: hidden;
+}
+
+/* ======================================
+   =========== LAYOUT ===================
+   ====================================== */
+
+.stars {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+}
+
+.content {
+    position: relative;
+    width: 85vw;
+    max-width: 950px;
+    min-width: 340px;
+    margin: 8vh auto 0 auto;
+    text-align: center;
+    background: rgba(25, 8, 65, 0.68);
+    border-radius: 2em;
+    padding: 3.5em 2.8em 3em 2.8em;
+    box-shadow: 0 5px 26px #a974ff77;
+    border: 2px solid #a974ff33;
+    backdrop-filter: blur(2px);
+    box-sizing: border-box;
+    z-index: 1;
+}
+
+/* ======================================
+   ======= TYPOGRAPHY ===================
+   ====================================== */
+
+h1 {
+    font-size: 3.2rem;
+    text-shadow: 0 3px 12px #a974ff;
+    font-family: 'Poppins', 'Quicksand', serif;
+    color: #FFD1FF;
+    margin: 0;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.6em 0;
+}
+
+p {
+    font-size: 0.9em;
+    color: #FFFFFF;
+    letter-spacing: 0.12em;
+    margin-top: 0.5em;
+}
+
+/* ======================================
+   =========== COMPONENTS ===============
+   ====================================== */
+
+/* Tarot Card Container */
+.tarot-card {
+    width: 100%;
+    max-width: 420px;
+    height: 290px;
+    margin: 0 auto 2em;
+    perspective: 1200px;
+    border: 3px solid #FFD1FF;
+    box-shadow: 0 0 0 6px #a974ff66, 0 6px 22px #6449e733;
+    outline: 1.5px solid #a974ff;
+    background: linear-gradient(90deg, #2d155a 0%, #8264e6 100%);
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Card Flip Animation */
+.tarot-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.9s cubic-bezier(.7, .1, .2, 1);
+    transform-style: preserve-3d;
+}
+
+.tarot-card.flipped .tarot-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Card Faces */
+.tarot-front,
+.tarot-back {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    padding: 1.5em 0.5em 1em;
+    box-sizing: border-box;
+}
+
+.tarot-back {
+    transform: rotateY(180deg);
+}
+
+/* Card Headings */
+.tarot-main-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', 'Quicksand', serif;
+    font-size: 2.1rem;
+    color: #FFD1FF;
+    font-weight: 700;
+    text-shadow: 0 3px 12px #a974ff;
+    letter-spacing: 0.09em;
+    margin: 0;
+    text-transform: uppercase;
+    gap: 0.45em;
+    /* more spacious */
+}
+
+.tarot-icon {
+    font-size: 1.3em;
+    color: #FFD1FF;
+    text-shadow: 0 0 11px #a974ff99;
+    margin: 0;
+}
+
+.tarot-title-stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.06;
+}
+
+.tarot-title-line {
+    display: block;
+}
+
+.tarot-subtitle {
+    font-size: 1.07em;
+    color: #C1BFFF;
+    letter-spacing: 0.12em;
+    font-style: italic;
+    text-shadow: 0 0 6px #a974ff55;
+    margin-top: 0.5em;
+}
+
+/* ======================================
+   ======== UTILITIES/ANIMATION =========
+   ====================================== */
+
+/* Twinkling Star Animation */
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.7;
+        box-shadow: 0 0 6px 2px #ffffff55;
+    }
+
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 16px 6px #fff7ffee;
+    }
+}
+
+.star {
+    pointer-events: none;
+    animation: twinkle 2.5s infinite;
+    transition: opacity 2s;
+}
