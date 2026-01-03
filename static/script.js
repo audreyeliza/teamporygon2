@@ -65,11 +65,12 @@ document.addEventListener("DOMContentLoaded", function () {
         fields.forEach(f => data[f] = document.getElementById(f).value);
 
         try {
-            const response = await fetch('/api/finance', {
+            const response = await fetch('https://teamporygon2-backend.onrender.com/api/finance', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
             });
+
             const result = await response.json();
             if (result.able_to_finance && result.final_plan) {
                 alert(
