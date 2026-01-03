@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return "That’s like one nice dinner out each week or a concert every month. This is a solid entry-level payment for building credit and independence.";
         } else if (payment < 700) {
             return "This is your ‘smart splurge’ zone, similar to budgeting for skincare, gym memberships, and travel combined. A balanced choice for comfort and confidence.";
-        } else if (payment < 1000) {
+        } else if (payment < 2000) {
             return "That’s an investment move — about the cost of a weekend getaway each month.";
         } else {
             return "This is luxury territory and kind of equivalent to designer shopping or frequent travel. Make sure it aligns with your financial goals and keeps you feeling secure.";
