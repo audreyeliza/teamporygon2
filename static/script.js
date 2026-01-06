@@ -21,31 +21,40 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.querySelectorAll('.tarot-card').forEach(card => {
         card.removeAttribute('onclick');
+
         card.addEventListener('click', function (e) {
-            // Prevent multiple flips
             if (this.classList.contains('flipped')) return;
-            // Inputs/buttons should not trigger flip
+
             if (e.target.tagName === 'INPUT' || e.target.tagName === 'BUTTON') {
                 e.stopPropagation();
                 return;
             }
+
             this.classList.add('flipped');
         });
-        // Block card click propagation for form elements
+
         card.querySelectorAll('input, button').forEach(input => {
-            ['click', 'focus'].forEach(ev => input.addEventListener(ev, e => e.stopPropagation()));
+            ['click', 'focus'].forEach(ev =>
+                input.addEventListener(ev, e => e.stopPropagation())
+            );
         });
     });
 
     function interpretMonthlyPayment(payment) {
-        if (payment < 200) {
+        if (payment < 150) {
+            return "That’s basically a couple of Target trips or a few iced coffees and snacks a week. Super low‑lift and very starter‑friendly.";
+        } else if (payment < 250) {
             return "That’s about what you’d spend on a few streaming subscriptions or weekly takeout. It’s totally manageable if you’re keeping things minimal.";
         } else if (payment < 400) {
-            return "That’s like one nice dinner out each week or a concert every month. This is a solid entry-level payment for building credit and independence.";
-        } else if (payment < 700) {
-            return "This is your ‘smart splurge’ zone, similar to budgeting for skincare, gym memberships, and travel combined. A balanced choice for comfort and confidence.";
+            return "That’s like one nice dinner out each week or a concert every month. This is a solid entry‑level payment for building credit and independence.";
+        } else if (payment < 550) {
+            return "This is your ‘smart splurge’ zone, similar to budgeting for skincare, gym memberships, and small trips combined. A balanced choice if your budget’s organized.";
+        } else if (payment < 750) {
+            return "This is around what many people pay for a typical car payment today, so it’s normal but not tiny. You’ll want to be intentional with your other spending.";
+        } else if (payment < 1200) {
+            return "That’s a big‑girl purchase level, like trading a couple of nights out, concert tickets, or shopping hauls each month for reliable transportation.";
         } else if (payment < 2000) {
-            return "That’s an investment move — about the cost of a weekend getaway each month.";
+            return "That’s an investment move — about the cost of a weekend getaway or short trip each month. Make sure your income and emergency fund can comfortably support it.";
         } else {
             return "This is luxury territory and kind of equivalent to designer shopping or frequent travel. Make sure it aligns with your financial goals and keeps you feeling secure.";
         }
@@ -68,7 +77,13 @@ document.addEventListener("DOMContentLoaded", function () {
                 body: JSON.stringify(data),
             });
 
+            if (!response.ok) {
+                const text = await response.text();
+                throw new Error(`Server error ${response.status}: ${text}`);
+            }
+
             const result = await response.json();
+
             if (result.able_to_finance && result.final_plan) {
                 alert(
                     `✨ You're eligible to finance! ✨\n` +
@@ -84,6 +99,3 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     };
 });
-
-
-// `Risk Level: ${result.final_plan.risk_level}`

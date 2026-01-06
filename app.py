@@ -1,27 +1,14 @@
 from flask import Flask, request, jsonify, render_template
-from flask_cors import CORS
 import finance
 
 app = Flask(__name__)
-
-CORS(
-    app,
-    resources={
-        r"/api/*": {
-            "origins": "https://manifestmytoyota.onrender.com",
-        }
-    },
-)
 
 @app.route("/")
 def home():
     return render_template("index.html")
 
-@app.route("/api/finance", methods=["POST", "OPTIONS"])
+@app.route("/api/finance", methods=["POST"])
 def calculate_finance():
-    if request.method == "OPTIONS":
-        return ("", 204)
-
     try:
         user_data = request.get_json() or {}
 

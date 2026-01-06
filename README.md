@@ -1,65 +1,33 @@
 # Manifest My Toyota
-Hello! Welcome to Manifest My Toyota, a quiz that allows people to find a car financial plan that's right for them!
 
-# Background
-We're creating a quiz-style questionnaire that asks question's about the user's financial status to recommend a unique financing or leasing plan that works for them.
+Manifest My Toyota is a quiz-style web app that uses your financial info and “girl math” style explanations to suggest a rough car payment you could aim for. The app is deployed on Render at https://manifestmytoyota.onrender.com/.
 
-# Setup
-1. Features
+## What it does
 
-    **Input monthly income, expenses, mortgage/rent, loans, credit score, and down payment.**
+- Collects:
+  - Annual income
+  - Monthly housing, loans, and other expenses
+  - Credit score
+  - Optional down payment
+- Checks if you likely have enough leftover income and a strong enough credit score to reasonably finance a car.
+- Suggests an estimated monthly payment using simple rules of thumb (around 10% of monthly income, capped by leftover income) plus a rough interest estimate.
+- Explains the payment in everyday spending terms (Target trips, concerts, takeout, etc.).
 
-    _- Calculates if you can afford a car and recommends financing or leasing._
+## Tech and files
 
-    _- Estimates monthly car payments and financing risk levels._
+- **Stack:** Python, Flask, HTML/CSS, JavaScript
+- **Key files:**
+  - `app.py` – Flask app entry point; serves the UI and exposes the `/api/finance` endpoint.
+  - `finance.py` – affordability and payment logic (`lifeStyle` and `financePlan`).
+  - `script.js` – front-end behavior, animations, and API calls.
+  - `requirements.txt` – Python dependencies (Flask and supporting packages).
 
-    _- Written in Python using Flask._
+## Run it locally
 
---------------
-
-2. Setup the app
-
-    **Clone this repository and navigate to the project directory.**
-
-    **Install dependencies using pip:**
-
-    Type into the Terminal:
-    
-    **pip install -r requirements.txt**
-
-    (see requirements.txt for details)
-
-
-# Running the App
-
-Run the Flask server
-
- Type into the Terminal: python app.py
-
-By default, the app launches in debug mode. Open your browser and go to http://127.0.0.1:5000/ to use the UI.
---------------
-
-# File Overview
-1. app.py: _Flask app entry point; serves the UI and connects your logic._
-
-2. finance.py: _Contains functions for financial calculations, decision logic for car payment, and finance/lease suggestions._
-
-    requirements.txt: _List of Python package dependencies._
-
-    README.md: _Project documentation._
-
----------------
-
-#  Usage
-
-**Enter your personal financial info in the web form.**
-
-**Submit to see results: the app calculates if you can afford a car, showing financing/leasing advice and estimated payments.**
-    
-The plan is based on your financial risk, credit score, and down payment.
---------------
-
-# Dependencies
-Flask, Jinja2, Werkzeug, Click, Blinker, Itsdangerous, MarkupSafe
-
-(Full version details in requirements.txt)
+```bash
+git clone https://github.com/audreyeliza/teamporygon2.git
+cd teamporygon2
+pip install -r requirements.txt
+python app.py
+```
+Then open http://127.0.0.1:5000/ in your browser to use the app.
