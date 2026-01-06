@@ -19,9 +19,7 @@ def home():
 
 @app.route("/api/finance", methods=["POST", "OPTIONS"])
 def calculate_finance():
-    # Handle preflight
     if request.method == "OPTIONS":
-        # Return empty 204 with headers added by flask-cors
         return ("", 204)
 
     try:
@@ -48,6 +46,7 @@ def calculate_finance():
             loans=safe_float(user_data.get("loans")),
             downPayment=safe_float(user_data.get("down_payment")),
         )
+
         return jsonify(result)
     except Exception as e:
         return jsonify({"error": str(e)}), 400

@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     console.log('Script loaded');
 
-    // 🌟 Twinkling Stars Creation
     const starsContainer = document.querySelector('.stars');
     const numStars = 100;
     for (let i = 0; i < numStars; i++) {
@@ -20,7 +19,6 @@ document.addEventListener("DOMContentLoaded", function () {
         starsContainer.appendChild(star);
     }
 
-    // 🔮 Tarot Card Flipping (once per card)
     document.querySelectorAll('.tarot-card').forEach(card => {
         card.removeAttribute('onclick');
         card.addEventListener('click', function (e) {
@@ -53,7 +51,6 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // 🚗 Finance API submission
     document.getElementById("submitBtn").onclick = async function (event) {
         event.preventDefault();
         // Gather all user input values
@@ -65,10 +62,10 @@ document.addEventListener("DOMContentLoaded", function () {
         fields.forEach(f => data[f] = document.getElementById(f).value);
 
         try {
-            const response = await fetch('https://teamporygon2-backend.onrender.com/api/finance', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
+            const response = await fetch("/api/finance", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data),
             });
 
             const result = await response.json();
