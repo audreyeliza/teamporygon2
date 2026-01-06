@@ -9,8 +9,6 @@ CORS(
     resources={
         r"/api/*": {
             "origins": "https://manifestmytoyota.onrender.com",
-            "methods": ["GET", "POST", "OPTIONS"],
-            "allow_headers": ["Content-Type", "Authorization"],
         }
     },
 )
@@ -21,10 +19,13 @@ def home():
 
 @app.route("/api/finance", methods=["POST", "OPTIONS"])
 def calculate_finance():
-    if request.metho == "OPTIONS":
+    # Handle preflight
+    if request.method == "OPTIONS":
+        # Return empty 204 with headers added by flask-cors
         return ("", 204)
+
     try:
-        user_data = request.get_json()
+        user_data = request.get_json() or {}
 
         def safe_float(value):
             try:
@@ -47,7 +48,6 @@ def calculate_finance():
             loans=safe_float(user_data.get("loans")),
             downPayment=safe_float(user_data.get("down_payment")),
         )
-
         return jsonify(result)
     except Exception as e:
         return jsonify({"error": str(e)}), 400
